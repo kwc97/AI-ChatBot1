@@ -851,3 +851,544 @@ def DeGnju():
     cursor.close()
 
     return jsonify(response_body)
+
+# 나잇대별 사용자 리스트
+@app.route('/api/by70s', methods=['POST'])
+def by70():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '70' and '74'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by75s', methods=['POST'])
+def by75():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '75' and '79'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by80s', methods=['POST'])
+def by80():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '80' and '84'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by85s', methods=['POST'])
+def by85():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '85' and '89'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by90s', methods=['POST'])
+def by90():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '90' and '94'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by95s', methods=['POST'])
+def by95():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '95' and '99'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by00s', methods=['POST'])
+def by00():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '00' and '04'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by05s', methods=['POST'])
+def by05():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '05' and '09'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by10s', methods=['POST'])
+def by10():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '10' and '14'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+@app.route('/api/by15s', methods=['POST'])
+def by15():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "프로필추천"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    user_list = "SELECT * FROM member, home"
+    cursor.execute(user_list)
+    user_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 생일이 있을 경우 추가 작업 수행
+    title_query = """
+                select mem.user_name, mem.text, mem.user_birth, mem.img_path, ho.mh_url from home ho , member mem
+                where ho.user_id = mem.user_id and substr(user_birth, 1,2) between '14' and '20'
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description":result[1],
+            "imageUrl":result[3],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
