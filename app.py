@@ -1392,3 +1392,84 @@ def by15():
     cursor.close()
 
     return jsonify(response_body)
+
+# 방문자가 제일 많은 미니홈페이지
+@app.route('/api/mvhm', methods=['POST'])
+def mvhm():
+    # JSON 데이터 받기
+    body = request.get_json()
+
+    # 응답 데이터 기본 구조
+    response_body = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "방문자가 제일 많은 미니홈피"
+                        },
+                        "items": []
+                    }
+                }
+            ]
+            }
+            }
+
+    # 데이터베이스에서 정보 가져오기
+    cursor = db.cursor()
+    home_list = "SELECT * FROM member, home"
+    cursor.execute(home_list)
+    home_list = cursor.fetchall()
+    
+
+    # 필터링된 정보에 방문자수가 많은 홈페이지 5개 추가 작업 수행
+    title_query = """
+                SELECT mem.user_name, mem.img_path, ho.introduce , ho.total, ho.mh_url from home ho, member mem 
+                where ho.user_id = mem.user_id order by total desc limit 5
+                """
+
+    cursor.execute(title_query)
+    results = cursor.fetchall()
+    
+    # 결과가 있을 경우에 리스트에 추가하기
+    for result in results:
+        item = {
+            "title":result[0],
+            "description": f"방문자수: {result[3]}명",
+            "imageUrl":result[1],
+            "link":{
+                "web":result[4]
+            }
+        }
+        response_body["template"]["outputs"][0]["listCard"]["items"].append(item)
+    
+    cursor.close()
+
+    return jsonify(response_body)
+
+# 1) 카카오톡 텍스트형 응답
+@app.route('/api/seyHello', methods=['POST'])
+def sayHello():
+    body = request.get_json()
+#     print(body)
+
+    responseBody = {
+        "version" : "2.0",
+        "template" : {
+            "outputs":[
+                {
+                    "simpleText":{
+                        "text": "안녕하세요? 그라운드 챗봇입니다 !!!"
+                    }
+                }
+            ]
+        }
+    }
+    
+    return responseBody
+
+
+           
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
