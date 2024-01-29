@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 레이아웃 - 2단 레이아웃</title>
+    <link rel="stylesheet" href="static/css/board.css">
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            
+            <div class="logo">
+                <a id="logo" href="링크 주소">
+                    <img src="/img/ground.png" alt="로고" width="40" height="40">
+                    <h1>Ground</h1>
+                </a>
+            </div>
+            <form action="hello.html" class="search">
+              <div class="search-bar">
+                <input type="text" placeholder="검색어 입력" id="sch-bar">
+                <button id="btn1">검색</button>
+              </div>
+            </form>
+        </header>  
+        <aside id="left-sidebar">
+            <table>
+              <tr>
+                <td colspan="2"><img src="./img/ground.png" alt="" width="100px" style="border-radius: 50%;"></td>
+              </tr>
+              <tr>
+                <td colspan="2" >닉네임</td>
+              </tr>
+              <tr>
+                <td colspan="2">상태 메시지</td>
+              </tr>
+              <tr>
+                <td><a href="index.html">팔로우</a></td>
+                <td><a href="index.html">팔로잉</a></td>
+              </tr>
+              <tr>
+                <td><a href="index.html">123,456</a></td>
+                <td><a href="index.html">123,456</a></td>
+              </tr>
+              <tr id="side-menu">
+                <td colspan="2"><a href="index.html"><img class="ic-search" src="./img/ic-search.svg" >My home</a></td>
+              </tr>
+              <tr id="side-menu">
+                <td colspan="2"><a href="hello.html"><img class="ic-search" src="./img/ic-search.svg" >Main</a></td>
+              </tr>
+              <tr id="side-menu">
+                <td colspan="2"><a href="index.html"><img class="ic-search" src="img/ic-search.svg" >챗봇</a></td>
+              </tr>
+              <tr id="side-menu">
+                <td colspan="2"><a href="index.html"><img class="ic-search" src="./img/ic-search.svg" >개인정보수정</a></td>
+              </tr>
+            </table>
+          </aside>
+        
+
+        <section id="contents">
+          <button id="write-button">게시글 작성</button>
+          <div class="article-wrapper">
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a id="post" href="hello.html">
+                <div class="board-size">
+                  <!-- 이미지와 텍스트를 담는 div 추가 -->
+                  <div class="content-wrapper">
+                      <img src="/img/ryuichi.jpg" alt="프로필 이미지">
+                      <div class="text-content">
+                          <h1>Ryuichi Sakamoto</h1>
+                          <p>시대를 대표하는 예술가이자 활동가 류이치 사카모토가 살아생전 마지막으로 전하는 이야기. 2020년, 암의 재발과 전이로 인해 치료를 받더라도 5년 이상 생존율은 50퍼센트라는 진단을 받고서 시간의 유한함에 직면하게 된 류이치 사카모토. 『나는 앞으로 몇 번의 보름달을 볼 수 있을까』는 그런 그가 삶의 마지막 고비에서 되돌아본 인생과 예술, 우정과 사랑, 자연과 철학, 그리고 시간을 뛰어넘어 오래도록 기억될 ...  </p>
+                      </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            
+             <!-- 페이지 버튼 추가 -->
+             <div class="pagination">
+              <button class="page-button">1</button>
+              <button class="page-button">2</button>
+              <button class="page-button">3</button>
+              <button class="page-button">4</button>
+              <button class="page-button">5</button>
+              <button class="page-button">6</button>
+              <button class="page-button">7</button>
+              <button class="page-button">8</button>
+              <button class="page-button">9</button>
+              <button class="page-button">10</button>
+              <!-- 필요한 만큼 버튼 추가 -->
+             </div>
+          </div>
+        </section>
+        
+        
+    </div>
+</body>
+
+</html>

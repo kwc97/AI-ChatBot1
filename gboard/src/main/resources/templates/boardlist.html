@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 리스트</title>
+    <link rel="stylesheet" href="/css/board.css">
+    <script src="/js/unlim_scroll.js"></script>
+    <style>
+    	.layout {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+ 	<div id="container" th:fragment="container">
+        <header id="header">
+            <div class="logo">
+                <a id="logo" th:href="@{링크 주소}">
+                    <img th:src="@{/img/ground.png}" alt="로고" width="40" height="40">
+                    <h1>Ground</h1>
+                </a>
+            </div>
+            <form th:action="@{/hello}" class="search">
+                <div class="search-bar">
+                    <input type="text" placeholder="검색어 입력" id="sch-bar">
+                    <button id="btn1" type="submit">검색</button>
+                </div>
+            </form>
+        </header>
+    </div>
+		<aside id="left-sidebar">
+	    <table>
+	        <tr>
+	            <td colspan="2">
+	                <img th:src="@{/img/ground.png}" alt="" width="100px" style="border-radius: 50%;">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td colspan="2">닉네임</td>
+	        </tr>
+	        <tr>
+	            <td colspan="2">상태 메시지</td>
+	        </tr>
+	        <tr>
+	            <td><a th:href="@{/index}">팔로우</a></td>
+	            <td><a th:href="@{/index}">팔로잉</a></td>
+	        </tr>
+	        <tr>
+	            <td><a th:href="@{/index}">123,456</a></td>
+	            <td><a th:href="@{/index}">123,456</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">My home</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/hello}"><img class="ic-search" th:src="@{/img/ic-search.svg}">Main</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">챗봇</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">개인정보수정</a></td>
+	        </tr>
+	    </table>
+		</aside>
+		
+		<section id="contents">
+		<form enctype="multipart/form-data">
+			<a th:href="@{/board/write}" style="text-decoration: none;" id="write-button">게시글 작성</a>
+          		<div class="article-wrapper">
+            		<article th:each="post : ${list}">
+              			<a id="post" th:href="@{/board/view(id=${post.postId})}">
+							<div class="board-size">
+                  			<!-- 이미지와 텍스트를 담는 div 추가 -->
+                  				<div class="content-wrapper">
+                      				<img th:src="${post.img_path}">
+                      				<div class="text-content">
+			                          	<h1 th:text="${post.title}"></h1>
+			                          	<p th:text="${post.cntent}"></p>
+                      				</div>
+                  				</div>
+							</div>
+              			</a>
+            		</article>
+          		</div>
+        </form>
+    
+		<th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+			<a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1})}" th:text = "${page}"></a>
+			<strong th:if="${page == nowPage}" th:text = "${page}" style="color:red"></strong>
+        </section>
+		
+</body>
+</html>

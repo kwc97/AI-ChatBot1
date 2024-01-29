@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세 페이지</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/unlim_scroll.js"></script>
+</head>
+<body>
+	<div id="container" th:fragment="container">
+        <header id="header">
+            <div class="logo">
+                <a id="logo" th:href="@{링크 주소}">
+                    <img th:src="@{/img/ground.png}" alt="로고" width="40" height="40">
+                    <h1>Ground</h1>
+                </a>
+            </div>
+            <form th:action="@{/hello}" class="search">
+                <div class="search-bar">
+                    <input type="text" placeholder="검색어 입력" id="sch-bar">
+                    <button id="btn1" type="submit">검색</button>
+                </div>
+            </form>
+        </header>
+    </div>
+		<aside id="left-sidebar">
+	    <table>
+	        <tr>
+	            <td colspan="2">
+	                <img th:src="@{/img/ground.png}" alt="" width="100px" style="border-radius: 50%;">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td colspan="2">닉네임</td>
+	        </tr>
+	        <tr>
+	            <td colspan="2">상태 메시지</td>
+	        </tr>
+	        <tr>
+	            <td><a th:href="@{/index}">팔로우</a></td>
+	            <td><a th:href="@{/index}">팔로잉</a></td>
+	        </tr>
+	        <tr>
+	            <td><a th:href="@{/index}">123,456</a></td>
+	            <td><a th:href="@{/index}">123,456</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">My home</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/hello}"><img class="ic-search" th:src="@{/img/ic-search.svg}">Main</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">챗봇</a></td>
+	        </tr>
+	        <tr id="side-menu">
+	            <td colspan="2"><a th:href="@{/index}"><img class="ic-search" th:src="@{/img/ic-search.svg}">개인정보수정</a></td>
+	        </tr>
+	    </table>
+		</aside>
+		
+		<section id="contents">
+            <div class="article-wrapper">
+                <article>
+                <form enctype="multipart/form-data">
+                    <div class="table-cell name-cell">
+                        <!-- 첫 번째 셀 -->
+                        <img th:src="@{/img/ryuichi.jpg}" alt="프로필 이미지">
+                        <span>Ryuichi Sakamoto</span>
+                        
+                    </div>
+                    <div class="table-cell image-cell">
+                        <!-- 두 번째 셀 -->
+                        <img th:src="${post.img_path}" alt="포스트 이미지">
+                    </div>
+                    <div class="table-cell title-cell">
+                        <h3 th:text="${post.title}"></h3>
+                    </div>
+                    <div class="table-cell content-cell">
+                        <p th:text="${post.cntent}"></p>
+                        <p th:text="${post.hash_tag}">해시태그</p>
+                    </div>
+                    <div class="table-cell end-cell">
+						<a th:href="@{/board/delete(id=${post.postId})}">글 삭제</a>
+						<a th:href="@{/board/modify/{id}(id=${post.postId})}">수정</a>
+						<a th:href="@{/board/list}">목록</a>
+                    </div>
+                </form>
+                </article>
+             </div>
+        </section>
+</body>
+</html>
